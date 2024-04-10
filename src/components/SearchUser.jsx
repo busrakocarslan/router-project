@@ -1,22 +1,25 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import React from 'react';
+import { Button, Form, InputGroup } from 'react-bootstrap';
 
-function SearchUser() {
+function SearchUser({ searchUser,setSearchUser, handleSearch }) {
   return (
     <div>
       <InputGroup className="mb-3">
-        <Button variant="outline-secondary" id="button-addon1">
-          SearchUser
+        <Button variant="outline-secondary" id="button-addon1" onClick={handleSearch}>
+          Kullanıcı Ara
         </Button>
-        <Form.Control
-          aria-label="Example text with button addon"
-          aria-describedby="basic-addon1"
+        <input
+          type='search'
+          name='search'
+          id='search'
+          autoFocus
+          placeholder='kullanıcı ara'
+          value={searchUser}
+          onChange={handleSearch}
         />
       </InputGroup>
     </div>
-  )
+  );
 }
 
-export default SearchUser
+export default SearchUser;
