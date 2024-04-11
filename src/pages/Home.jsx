@@ -31,9 +31,9 @@ function Home() {
     getUsers();
   }, [currentPage, perPage]);
 
-  const indexOfLastPost = currentPage * perPage;
-  const indexOfFirstPost = indexOfLastPost - perPage;
-  const currentData = userData.slice(indexOfFirstPost, indexOfLastPost);
+  // const indexOfLastPost = currentPage * perPage;
+  // const indexOfFirstPost = indexOfLastPost - perPage;
+  // const currentData = userData.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -43,15 +43,16 @@ function Home() {
     user.login.toLowerCase().includes(searchUser.toLowerCase())
   );
 
-  const handleSearch = (e) => {
-    setUserData(e.target.value)
-    filterUsers();
-  };
+  // const handleSearch = (e) => {
+  //   setUserData(e.target.value)
+  //   filterUsers();
+  // };
 
   return (
     <div>
-      <SearchUser setUserData={setUserData} userData={userData} searchUser={searchUser} setSearchUser={setSearchUser} handleSearch={handleSearch} />
-      <Followers userData={userData} loading={loading} PerPage={perPage} totalpost={userData.length} paginate={paginate}/>
+      <SearchUser searchUser={searchUser} setSearchUser={setSearchUser} handleSearch={()=>{}} />
+      <Followers userData={filterUsers} loading={loading} perPage={perPage} totalpost={userData.length} paginate={paginate} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+      {/*userdata'yı filter usersa atadım ki diğer tarafta fitreleme işlemini yapması için.handleuser fonk da orada tanımlamak yerine callback olarak yazdım yoksa çalışmadı. */}
         
      
       

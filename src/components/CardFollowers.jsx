@@ -131,14 +131,14 @@ import React from 'react'
 import { Card, Button, Container } from 'react-bootstrap';
 
 
-function CardFollowers({ userData, loading,currentData }) {
+function CardFollowers({ currentData, loading }) {
   if (loading) {
     return <h2>Loading</h2>;
   }
 
   return (
     <Container className="d-flex flex-wrap g-5 m-auto justify-content-between">
-      {userData.map(({ id, avatar_url, html_url, login }) => (
+      {currentData.map(({ id, avatar_url, html_url, login }) => (
         <Card key={id} style={{ width: '18rem', margin: '1rem 1rem' }}>
           <Card.Img variant="top" src={avatar_url} />
           <Card.Body>

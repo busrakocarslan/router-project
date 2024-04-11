@@ -4,18 +4,17 @@ import { Button, Form, InputGroup } from 'react-bootstrap';
 function SearchUser({ searchUser,setSearchUser, handleSearch }) {
   return (
     <div>
-      <InputGroup className="mb-3">
-        <Button variant="outline-secondary" id="button-addon1" onClick={handleSearch}>
+      <InputGroup>
+        <Button variant="outline-secondary" id="button-addon1" onClick={handleSearch} className='text-warning me-1 rounded-1'>
           Kullanıcı Ara
         </Button>
-        <input
-          type='search'
+        <input className='w-75 border-1 rounded-1'
+          type='text'
           name='search'
           id='search'
           autoFocus
-          placeholder='kullanıcı ara'
           value={searchUser}
-          onChange={handleSearch}
+          onChange={(e)=>setSearchUser(e.target.value)}
         />
       </InputGroup>
     </div>
