@@ -9,7 +9,7 @@ function Followers({ userData, loading, paginate, perPage, totalpost, currentPag
   return (
     <div>
       <CardFollowers currentData={currentData} loading={loading} />
-      <Paginate paginate={paginate} perPage={perPage} totalpost={totalpost} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Paginate paginate={paginate} perPage={perPage} totalpost={userData.length} currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
 }

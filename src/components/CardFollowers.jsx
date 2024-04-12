@@ -133,7 +133,7 @@ import { Card, Button, Container } from 'react-bootstrap';
 
 function CardFollowers({ currentData, loading }) {
   if (loading) {
-    return <h2>Loading</h2>;
+    return <h2>Loading...</h2>;
   }
 
   return (

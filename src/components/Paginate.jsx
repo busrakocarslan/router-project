@@ -1,30 +1,28 @@
 import React from 'react';
 import Pagination from "react-bootstrap/Pagination";
-import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
 
-function Paginate({ perPage, totalpost, paginate, currentPage,setCurrentPage }) {
+function Paginate({ perPage, totalpost,paginate, currentPage,setCurrentPage }) {
   const pageNumber = [];
   
   for (let i = 1; i <= Math.ceil(totalpost / perPage); i++) {
     pageNumber.push(i);
-    console.log(perPage);
+    console.log(totalpost);
   }
+ 
 
   return (
-    <Container>
-      <Pagination>
-        {pageNumber.map((number) => (
-          <Pagination.Item
-            key={number}
-            active={number === currentPage}//active sayfayı ayarlayabilmek için
-            onClick={() => paginate(number)}
-           type="button">
-           {number}
-          </Pagination.Item>
-        ))}
-      </Pagination>
-    </Container>
+    <nav>
+    <ul className="pagination">
+      {pageNumber.map((number) => (
+        <li key={number} className="page-item">
+          <button className="page-link" onClick={()=>paginate(number)}>{/* a etiketi ile olmadı button ile değiştirdim e.prevent defaoult yapmaya gerek kalmadı. Link ile olmadı */}{number}</button>
+        </li>
+      ))}
+    </ul>
+    
+  </nav>
   );
 }
 

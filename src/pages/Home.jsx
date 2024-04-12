@@ -10,7 +10,7 @@ function Home() {
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(10); // Sayfada toplam kaç kişi tutulacak state
+  const [perPage] = useState(10); // Sayfada toplam kaç kişi tutulacak state
   const [searchUser, setSearchUser] = useState('');
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function Home() {
       try {
         setLoading(true);
         const res = await axios(
-          `https://api.github.com/users/anthonyharold67/followers?per_page=${perPage}&page=${currentPage}`
+          `https://api.github.com/users/anthonyharold67/followers?per_page=100`
         );
         setUserData(res.data);
         setLoading(false);
@@ -34,10 +34,11 @@ function Home() {
   // const indexOfLastPost = currentPage * perPage;
   // const indexOfFirstPost = indexOfLastPost - perPage;
   // const currentData = userData.slice(indexOfFirstPost, indexOfLastPost);
-
-  const paginate = (pageNumber) => {
+  const paginate = (pageNumber) => {// sayfa değiştiğinde yeni bilgilerin gelmesi için change page
     setCurrentPage(pageNumber);
   };
+
+  
 
   const filterUsers = userData.filter((user) =>
     user.login.toLowerCase().includes(searchUser.toLowerCase())
