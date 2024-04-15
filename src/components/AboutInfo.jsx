@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 function AboutInfo() {
   return (
-    <div>AboutInfo</div>
-  )
+    <div>
+      <h1>Clarusway Online IT Bootcamp</h1>
+      <h4>Reinvent Yourself</h4>
+    </div>
+  );
 }
 
-export default AboutInfo
+export default AboutInfo;

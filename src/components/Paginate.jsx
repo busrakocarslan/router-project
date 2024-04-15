@@ -13,7 +13,7 @@ function Paginate({ perPage, totalpost,paginate, currentPage,setCurrentPage }) {
  
 
   return (
-    <nav>
+    <nav className='m-5'>
     <ul className="pagination">
       {pageNumber.map((number) => (
         <li key={number} className="page-item">
